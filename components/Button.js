@@ -1,7 +1,20 @@
 import styled, {css} from "styled-components"
 
-const StyledButton = styled.button 
-`
+
+export const ButtonStyle = css `
+
+    @keyframes pulse {
+        0% {
+            scale:1.1;
+        }
+        50% {
+            text-shadow: 5px 5px 5px #fff; 
+        }
+        100% {
+            text-shadow: 1px 1px 1px #fff;
+        }
+    }
+
     background-color: #000;
     color:#00FF00;
     font-family:'Orbitron', sans-serif;
@@ -18,26 +31,39 @@ const StyledButton = styled.button
         opacity:1; 
         transition: opacity 0.5s;
         text-shadow: 1px 1px 1px #00FF00;
-        transition: text-shadow 0.5s;
+        transition: text-shadow 0.5s; 
+        animation: pulse 1s 1;
     }
     svg{
         height:20px;
         margin-right:5px;
     }
-
     ${props => props.pink && css`
     box-shadow: 0 0 10px 2px #FF10F0;
     color:#FF10F0;
     &:hover{ 
         text-shadow: 1px 1px 1px #FF10F0;
         transition: text-shadow 0.5s;
+        }
+    `
     }
-`}
+
     ${props => props.size ==='lg' && css`
         font-size:1.1rem;
         padding: 10px 15px
-    `}
+    `
+    }
+
+  
+
 `;
+
+
+const StyledButton = styled.button 
+`
+    ${ButtonStyle}
+`
+
 
 export default function Button({children,...rest}) {
     return(
