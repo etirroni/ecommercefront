@@ -1,6 +1,7 @@
 import Head from "next/head"
 
 import Header from "@/components/Header"
+import Featured from "@/components/Featured";
 
 export default function HomePage() {
   return (
@@ -12,7 +13,11 @@ export default function HomePage() {
         />
       </Head>
       <Header />
-      
+      <Featured/>
     </div>
   );
+}
+
+export function getServerSideProps() {
+  
 }

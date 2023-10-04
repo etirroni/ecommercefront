@@ -24,6 +24,11 @@ const NavLink = styled(Link)
 `
     color:#aaa;
     text-decoration:none;
+    text-shadow: 2px 2px 4px #FF10F0;
+    &:hover {
+        color: #fff;
+        transition: color 0.5s;
+      }
     
 `
 const StyledNav = styled.nav
