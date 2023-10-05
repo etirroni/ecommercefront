@@ -1,5 +1,3 @@
-import Head from "next/head"
-
 import Header from "@/components/Header"
 import Featured from "@/components/Featured";
 import { Product } from "@/models/Product";
@@ -10,12 +8,6 @@ export default function HomePage({featuredProduct, newProducts}) {
   console.log({newProducts})
   return (
     <div>
-      <Head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
       <Header />
       <Featured product={featuredProduct}/>
       <NewProducts products={newProducts}/>

@@ -3,17 +3,6 @@ import styled, {css} from "styled-components"
 
 export const ButtonStyle = css `
 
-    @keyframes pulse {
-        0% {
-            scale:1.1;
-        }
-        50% {
-            text-shadow: 5px 5px 5px #fff; 
-        }
-        100% {
-            text-shadow: 1px 1px 1px #fff;
-        }
-    }
 
     background-color: #000;
     color:#00FF00;
@@ -22,31 +11,30 @@ export const ButtonStyle = css `
     border-radius:10px;
     padding:10px 15px;
     cursor:pointer;
-    box-shadow: 0 0 10px 2px #00FF00;
+
     box-sizing:border-box;
     opacity:0.8; 
     display:inline-flex;
     letter-spacing:1px;
-    &:hover{ 
-        opacity:1; 
-        transition: opacity 0.5s;
-        text-shadow: 1px 1px 1px #00FF00;
-        transition: text-shadow 0.5s; 
-        animation: pulse 1s 1;
+    &:hover{
+        scale:1.2;
+        transition:scale 0.5s;
     }
     svg{
         height:20px;
         margin-right:5px;
     }
-    ${props => props.pink && css`
-    box-shadow: 0 0 10px 2px #FF10F0;
+    ${props => props.pink && props.outline && css`
+    box-shadow: 0 0 4px 3px #FF10F0;
     color:#FF10F0;
-    &:hover{ 
-        text-shadow: 1px 1px 1px #FF10F0;
-        transition: text-shadow 0.5s;
-        }
     `
     }
+
+    ${props => props.pink && !props.outline && css`
+    color:#FF10F0;
+    `
+    }
+    
 
     ${props => props.size ==='lg' && css`
         font-size:1.1rem;
