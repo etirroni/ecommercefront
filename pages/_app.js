@@ -4,6 +4,7 @@ import { createGlobalStyle } from "styled-components"
 const GlobalStyles = createGlobalStyle`
 
   body{
+    background-color:#000;
     padding:0;
     margin:0;
     font-family: 'Orbitron', sans-serif;

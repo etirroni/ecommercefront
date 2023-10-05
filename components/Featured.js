@@ -27,6 +27,12 @@ const ColumnsWrapper = styled.div
     gap:40px;
     img{
         max-width: 100%;
+        opacity:0.5;
+        &:hover {
+            opacity:1;
+            transition: opacity 0.5s;
+          }
+       
     }
 `;
 const Column = styled.div
@@ -42,6 +48,7 @@ const ButtonsWrapper = styled.div
     gap: 20px;
     margin-top:30px;
 `
+
 
 export default function Featured({product}){
     return(
@@ -66,7 +73,7 @@ export default function Featured({product}){
                 </div>                
                 </Column>
                 <Column>
-                <img src="https://firebasestorage.googleapis.com/v0/b/fir-upload-657f3.appspot.com/o/images%2F1696448284481.png?alt=media&token=d2af52f9-7acf-4ca3-ab6d-d6ef3b06ffdd" alt="firebaseLogo"/>
+                <img src="https://firebasestorage.googleapis.com/v0/b/fir-upload-657f3.appspot.com/o/images%2F1696507156836.png?alt=media&token=bd49df15-4511-4475-ad76-e9c9e55475bb" alt="firebaseLogo"/>
                 </Column>
             </ColumnsWrapper>
             </Center>

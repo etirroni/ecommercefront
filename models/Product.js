@@ -9,7 +9,9 @@ const ProductSchema = new Schema({
     images: [{type:String}],
     category: { type:mongoose.Types.ObjectId, 
                 ref:'Category'},
-    properties: [{type:Object}]
+    properties: [{type:Object}],
+},{
+    timestamps:true,
 });
 
 export const Product = models.Product || model('Product', ProductSchema)
