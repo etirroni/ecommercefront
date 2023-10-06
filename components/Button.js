@@ -37,8 +37,8 @@ export const ButtonStyle = css `
     
 
     ${props => props.size ==='lg' && css`
-        font-size:1.1rem;
-        padding: 10px 15px
+        font-size:1.5rem;
+        
     `
     }
 
