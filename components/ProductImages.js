@@ -4,13 +4,13 @@ import styled from "styled-components"
 const Image = styled.img`
 max-width:100%;
 max-height:100%;
-background-color:#eee;
+
 border-radius:10px;
 `;
 const BigImage = styled.img`
 max-width: 100%;
 max-height: 300px;
-background-color:#eee;
+
 border-radius:10px;
 `
 const ImageButtons = styled.div`
@@ -48,7 +48,9 @@ export default function ProductImages({images}) {
             </BigImageWrapper>
             <ImageButtons>
                 {images.map(image => (
-                    <ImageButton key={image} active={image===activeImage} onClick={()=> setActiveImage(image)}>
+                    <ImageButton key={image} 
+                                {...(image === activeImage ? { active:"true" } : {})}
+                                onClick={()=> setActiveImage(image)}>
                         <Image src={image} alt=""/>
                     </ImageButton>
                 ))}

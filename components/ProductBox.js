@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import Link from "next/link";
 import Button from "./Button";
+import ButtonLink from "./ButtonLink";
 import Cart from "./Icons/Cart";
 import SparkleIcon from "./Icons/Sparkle";
 import { useContext } from "react";
@@ -75,7 +76,7 @@ export default function ProductBox({_id,title,description,price,images}){
                 <Price>
                     <UnderlinedText>${price}</UnderlinedText>
                 </Price>
-                <Button><SparkleIcon/> Details</Button>
+                <ButtonLink href={'/product/'+_id}><SparkleIcon/> Details</ButtonLink>
                 <Button pink="true" onClick={ () => addProduct(_id)}><Cart/>  Add To Cart</Button>
             </PriceRow>
         </ProductInfoBox>

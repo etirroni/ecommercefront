@@ -31,13 +31,7 @@ const ColumnsWrapper = styled.div
     grid-template-columns:  1.2fr 0.8fr;
     gap:40px;
     img{
-        max-width: 100%;
-        opacity:0.5;
-        &:hover {
-            opacity:1;
-            transition: opacity 0.5s;
-          }
-       
+        max-width: 100%;  
     }
 `;
 const Column = styled.div
@@ -71,17 +65,19 @@ export default function Featured({product}){
                     <Title>{product.title}</Title>
                     <Desc>{product.description}</Desc>
                     <ButtonsWrapper>
-                        <ButtonLink href={'/products/'+product._id}>
+                        <ButtonLink href={'/product/'+product._id}>
                             <SparkleIcon/>
                             Read More</ButtonLink>
-                        <Button pink onClick={addFeaturedToCart}>
+                        <Button pink="true" onClick={addFeaturedToCart}>
                             <Cart/>
                             Add To Cart</Button>
                     </ButtonsWrapper>
                 </div>                
                 </Column>
                 <Column>
+                <ButtonLink href={'/product/'+product._id}>
                 <img src="https://firebasestorage.googleapis.com/v0/b/fir-upload-657f3.appspot.com/o/images%2F1696507156836.png?alt=media&token=bd49df15-4511-4475-ad76-e9c9e55475bb" alt="firebaseLogo"/>
+                </ButtonLink>
                 </Column>
             </ColumnsWrapper>
             </Center>

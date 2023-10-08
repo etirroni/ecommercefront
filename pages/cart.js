@@ -138,7 +138,7 @@ export default function CartPage() {
                             </thead>
                                 <tbody>
                                  {products.map(product =>(
-                                    <tr>
+                                    <tr key={product._id}>
                                         <ProductInfoCell>
                                             <ProductImageBox>
                                                 <img src={product.images[0]}/>
@@ -146,7 +146,7 @@ export default function CartPage() {
                                                 {product.title}: 
                                         </ProductInfoCell>
                                         <td>
-                                            <Button size="lg" pink onClick={ () => lessOfThisProduct(product._id)}>-</Button>
+                                            <Button size="lg" pink="true" onClick={ () => lessOfThisProduct(product._id)}>-</Button>
                                             <QuantityLabel>{cartProducts.filter(id => id === product._id).length}</QuantityLabel>
                                             <Button size="lg" onClick={ () => moreOfThisProduct(product._id) }>+</Button>
                                         </td>

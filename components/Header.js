@@ -6,7 +6,7 @@ import { CartContext } from "./CartContext";
 
 const StyledHeader = styled.header
 `
-    background-color: #000;
+    background-color:#000
     
 `;
 const Logo = styled(Link)
@@ -14,6 +14,7 @@ const Logo = styled(Link)
     color:#fff;
     text-decoration:none;
     font-weight:bold;
+    font-size: large;
     text-shadow: 2px 2px 4px #00FF00
 `
 const Wrapper = styled.div
@@ -24,12 +25,11 @@ const Wrapper = styled.div
 `
 const NavLink = styled(Link)
 `
-    color:#aaa;
+    color:#fff;
     text-decoration:none;
     text-shadow: 2px 2px 4px #FF10F0;
     &:hover {
-        color: #fff;
-        transition: color 0.5s;
+        opacity:0.7;
       }
     
 `
@@ -45,7 +45,7 @@ export default function Header(){
         <StyledHeader>
             <Center>
                 <Wrapper>
-                    <Logo href={'/'}>NeverBackDownNeverWhat</Logo>
+                    <Logo href={'/'}>ElGigantti</Logo>
                     <StyledNav>
                     <NavLink href={'/'}>Home</NavLink>
                     <NavLink href={'/products'}>All products</NavLink>
