@@ -67,7 +67,7 @@ export default function ProductBox({_id,title,description,price,images}){
     return(
         <PRoductWrapper>
         <Box href={url}>
-            <img src={images[0]} alt="Image coming soon"/>
+            <img src={images?.[0]} alt="Image coming soon"/>
         </Box>
         <ProductInfoBox>
             <Title href={url}> { title } </Title>
@@ -76,7 +76,7 @@ export default function ProductBox({_id,title,description,price,images}){
                     <UnderlinedText>${price}</UnderlinedText>
                 </Price>
                 <Button><SparkleIcon/> Details</Button>
-                <Button pink onClick={ () => addProduct(_id)}><Cart/>  Add To Cart</Button>
+                <Button pink="true" onClick={ () => addProduct(_id)}><Cart/>  Add To Cart</Button>
             </PriceRow>
         </ProductInfoBox>
         </PRoductWrapper>
