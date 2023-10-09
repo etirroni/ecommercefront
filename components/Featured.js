@@ -9,20 +9,30 @@ import { CartContext } from "./CartContext";
 
 const Bg = styled.div
 `
-    background-color: #000;
+    background: linear-gradient(to bottom left, #A3E1DC, #FFF);
     color:#fff;
     padding: 50px 0;
+    margin:70px ;
+    border:6px solid white;
+    border-radius:10px;
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3); 
 `;
 
 const Title = styled.h1
 `
     margin:0;
-    text-shadow: 2px 2px 4px #00D2B3;
+    text-shadow: 1px 1px 2px #000; 
+    background-color:#FFCBCB;
+    border-radius:10px;
+    padding:10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3); 
+    display:flex;
+    justify-content:center;
     
 `;
 const Desc = styled.p
 `
-    font-size:.8rem;
+    text-shadow: 1px 1px 2px #000;  
 
 `;
 const ColumnsWrapper = styled.div
@@ -46,6 +56,12 @@ const ButtonsWrapper = styled.div
     display:flex;
     gap: 20px;
     margin-top:30px;
+    
+`
+const BoxInBox = styled.div`
+    
+    padding: 20px;
+    
 `
 
 
@@ -61,7 +77,7 @@ export default function Featured({product}){
             <Center>
             <ColumnsWrapper>
                 <Column>
-                <div>
+                <BoxInBox>
                     <Title>{product.title}</Title>
                     <Desc>{product.description}</Desc>
                     <ButtonsWrapper>
@@ -72,7 +88,8 @@ export default function Featured({product}){
                             <Cart/>
                             Add To Cart</Button>
                     </ButtonsWrapper>
-                </div>                
+                </BoxInBox> 
+                           
                 </Column>
                 <Column>
                 <ButtonLink href={'/product/'+product._id}>

@@ -4,13 +4,11 @@ import styled from "styled-components"
 const Image = styled.img`
 max-width:100%;
 max-height:100%;
-
 border-radius:10px;
 `;
 const BigImage = styled.img`
 max-width: 100%;
 max-height: 300px;
-
 border-radius:10px;
 `
 const ImageButtons = styled.div`

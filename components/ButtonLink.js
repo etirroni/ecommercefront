@@ -6,7 +6,7 @@ const StyledLink=styled(Link)
 `
     ${ButtonStyle}
     text-decoration:none;
-    box-shadow: none;
+
 
 `;
 

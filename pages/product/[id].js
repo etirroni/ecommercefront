@@ -16,6 +16,11 @@ const ColWrapper = styled.div`
     grid-template-columns: 1fr 1fr;
     gap: 40px;
     margin-top:40px;
+    background: linear-gradient(to bottom right, #A3E1DC, #FFF);
+    padding: 30px;
+    border:6px solid white;
+    border-radius:10px;
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3); 
    
 `;
 const Box = styled.div`
@@ -31,6 +36,9 @@ const PriceRow = styled.div`
 const Price = styled.span`
     font-size:2rem;
 `
+const Pimpel = styled.div`
+text-shadow: 1px 1px 2px #000; 
+`
 
 export default function ProductPage({product}){
     const {addProduct} = useContext(CartContext)
@@ -42,7 +50,7 @@ export default function ProductPage({product}){
                 <Box>
                  <ProductImages images={product.images}/>
                 </Box>
-                <div>
+                <Pimpel>
                     <Title>{product.title}</Title>
                     <p>{product.description}</p>
                     <PriceRow>
@@ -55,7 +63,7 @@ export default function ProductPage({product}){
                         </Button>
                     </div>   
                     </PriceRow>
-                </div>
+                </Pimpel>
              </ColWrapper>
         </Center>
         </>

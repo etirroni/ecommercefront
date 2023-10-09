@@ -9,7 +9,10 @@ import { CartContext } from "./CartContext";
 
 
 const PRoductWrapper = styled.div`
- color:#fff;
+
+color:#fff;
+ text-shadow: 1px 1px 2px #000; 
+
 `;
 
 const Box = styled(Link)`
@@ -27,8 +30,9 @@ const Box = styled(Link)`
 `;
 
 const Title = styled(Link)`   
-    font-weight:normal;
-    margin-bottom:1rem;
+    font-weight:bold;
+    text-align:center;
+    margin-bottom:1.2rem;
     align-items:center;
     color:inherit;
     text-decoration:none;
@@ -40,21 +44,26 @@ const Title = styled(Link)`
 const ProductInfoBox = styled.div`
    padding:10px;
 
+
 `
 const PriceRow = styled.div `    
     text-align:center;
     align-items:center;
     justify-content:space-between;
+    
+    
 `
 const Price = styled.div`
-    font-size:1.2rem;
+    
+    font-size:2rem;
     font-weight:700;
     margin-bottom:20px;
    
 
 `
+
 const UnderlinedText = styled.span`
-  border-bottom: 5px dotted white; 
+  border-bottom: 5px dotted grey; 
   padding-bottom: 3px; 
   
   
@@ -74,10 +83,13 @@ export default function ProductBox({_id,title,description,price,images}){
             <Title href={url}> { title } </Title>
             <PriceRow>
                 <Price>
-                    <UnderlinedText>${price}</UnderlinedText>
+                   <UnderlinedText>${price}</UnderlinedText>
                 </Price>
-                <ButtonLink href={'/product/'+_id}><SparkleIcon/> Details</ButtonLink>
-                <Button pink="true" onClick={ () => addProduct(_id)}><Cart/>  Add To Cart</Button>
+                
+                    <ButtonLink small="true" outline="true" href={'/product/'+_id}><SparkleIcon/> Details</ButtonLink>
+                    <div style={{ margin: '10px' }}></div>
+                    <Button small="true" outline="true"  onClick={ () => addProduct(_id)}><Cart/>  Add To Cart</Button>
+               
             </PriceRow>
         </ProductInfoBox>
         </PRoductWrapper>

@@ -7,7 +7,7 @@ const StyledInput = styled.input`
     border-radius:10px; 
     font-size:medium;   
     background-color:#eee;
-    font-family:"Orbitron";
+    font-family:"Permanent Marker";
     box-sizing:border-box;
     outline: none;
     &:focus{

@@ -6,30 +6,46 @@ import { CartContext } from "./CartContext";
 
 const StyledHeader = styled.header
 `
-    background-color:#000
-    
+    background: linear-gradient(to top right, #A3E1DC, #FFF);
+    padding:10px;
+    margin:70px ;
+    border:6px solid white;
+    border-radius:10px;
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3); 
 `;
+
 const Logo = styled(Link)
 `
     color:#fff;
-    text-decoration:none;
+    padding: 10px;
     font-weight:bold;
-    font-size: large;
-    text-shadow: 2px 2px 4px #00FF00
+    font-size: 20px;
+    text-decoration:none;  
+    text-shadow: 1px 1px 2px #000; 
+   
 `
 const Wrapper = styled.div
 `
     display:flex;
     justify-content: space-between;
-    padding: 30px 0;
+    align-items: center;
+    padding: 20px 0;
+    gap:50px;
+  
 `
 const NavLink = styled(Link)
 `
     color:#fff;
+    padding:10px;
+    background-color:#FFCBCB;
+    border:dashed 4px white;
+    border-radius:10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3); 
     text-decoration:none;
-    text-shadow: 2px 2px 4px #FF10F0;
+    font-size:20px;
+    text-shadow: 1px 1px 2px #000;  
     &:hover {
-        opacity:0.7;
+        background-color:#FFDBCC;
       }
     
 `
@@ -45,7 +61,12 @@ export default function Header(){
         <StyledHeader>
             <Center>
                 <Wrapper>
-                    <Logo href={'/'}>ElGigantti</Logo>
+                    
+                        <Logo href={'/'}>
+                       
+                       Cloudy
+                        </Logo>
+                    
                     <StyledNav>
                     <NavLink href={'/'}>Home</NavLink>
                     <NavLink href={'/products'}>All products</NavLink>

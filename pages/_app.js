@@ -5,12 +5,14 @@ import {CartContextProvider} from "@/components/CartContext"
 const GlobalStyles = createGlobalStyle`
  
   body{
-    background-color:#000;
+   /* background: linear-gradient(to bottom left, #A3E1DC, #FFE1E9);*/
+   background-color:#FFCBCB;
     color:white;
     padding:0;
     margin:0;
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Permanent Marker', cursive;
     letter-spacing:1px;
+    font-size:large;
     
   }
 `
