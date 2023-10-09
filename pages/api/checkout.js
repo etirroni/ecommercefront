@@ -32,8 +32,6 @@ export default async function handler(req,res){
    const orderDoc = await Order.create({
     line_items,name,email,city,postCode,streetAddress,country,paid:false,
 })
-console.log("email before session:", email)
-console.log("email before session:", name)
 const session = await stripe.checkout.sessions.create({
     line_items,
     mode:'payment',
