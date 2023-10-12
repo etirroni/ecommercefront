@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Box from "./Box";
 
 
 
@@ -6,9 +7,7 @@ const StyledFooter = styled.footer
 `
     
   
-    background-size: cover; 
-    background-repeat: no-repeat; 
-    background-position: center; 
+    background: linear-gradient(to bottom , #A3E1DC, #e7e7e7);
     padding:50px;
     margin:100px 20px 20px 20px;
     border:6px solid white;
@@ -19,7 +18,9 @@ const StyledFooter = styled.footer
 export default function Footer(){
     return(
         <StyledFooter>
-            Hello this is footer 
+           
+            Hello this is footer
+            
         </StyledFooter>
     )
 }

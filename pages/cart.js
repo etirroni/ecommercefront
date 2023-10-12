@@ -94,7 +94,21 @@ export default function CartPage() {
     function lessOfThisProduct(id){
         removeProduct(id)
     }
-    async function goToPayment(){
+    function isEmailValid(email) {
+        const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+        return emailRegex.test(email);
+    }
+    async function goToPayment(event){
+        event.preventDefault();
+        if (!name || !email || !country || !city || !postCode || !streetAddress) {
+            // Check if required fields are empty
+            alert("Check order information!");
+            return;
+        }
+        if (!isEmailValid(email)){
+            alert("Check your email!")
+            return;
+        }
         const response = await axios.post('/api/checkout', {
             name,email,country,city,postCode,streetAddress,
             cartProducts
@@ -108,6 +122,7 @@ export default function CartPage() {
         const price = products.find(p=>p._id===productId)?.price || 0;
         total+=price;
     }
+
 
     if(isSuccess){
         clearCart();
@@ -181,18 +196,21 @@ export default function CartPage() {
                                 placeholder="Name" 
                                 value={name}
                                 name="name" 
+                                required
                                 onChange={ev => setName(ev.target.value)}/>
                             <Input 
                                 type="text" 
                                 placeholder="Email" 
                                 value={email}
                                 name="email" 
+                                required
                                 onChange={ev => setEmail(ev.target.value)}/>
                             <Input 
                                 type="text" 
                                 placeholder="Country" 
                                 value={country}
                                 name="country" 
+                                required
                                 onChange={ev => setCountry(ev.target.value)}/>
                             <CityHolder>
                             <Input 
@@ -200,12 +218,14 @@ export default function CartPage() {
                                 placeholder="City" 
                                 value={city}
                                 name="city" 
+                                required
                                 onChange={ev => setCity(ev.target.value)}/>
                             <Input 
                                 type="text" 
                                 placeholder="Post code" 
                                 value={postCode}
                                 name="postCode" 
+                                required
                                 onChange={ev => setPostCode(ev.target.value)}/>             
                             </CityHolder>
                             <Input 
@@ -213,6 +233,7 @@ export default function CartPage() {
                                 placeholder="Street address" 
                                 value={streetAddress}
                                 name="streetAddress" 
+                                required
                                 onChange={ev => setStreetAddress(ev.target.value)}/>
                             <ButtonHolder>
                             <Button 
