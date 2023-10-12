@@ -43,10 +43,26 @@ export default function ProductsPage({
     const [childCategories, setChildCategories] = useState([])
     const [brand, setBrand] = useState(assignedBrand || "")
     console.log("brand is : ", brand)
+    console.log("products: ", products)
 
-    const filteredProducts = category
-    ? products.filter(product => product.category === category)
-    : products 
+    //const filteredProducts = category
+    //? products.filter(product => product.category === brand, product.properties === productProperties)
+    //: products
+    const filteredProducts = products.filter((product) => {
+        // Check if the product matches the selected category and brand
+        const matchesCategory = !category || product.category === brand;
+
+    
+        const matchesProperties = Object.keys(productProperties).every((key) =>
+        product.properties.some((property) =>
+            property[key] && property[key].toLowerCase() === productProperties[key].toLowerCase()
+        )
+        );
+        console.log("matchesCategory: ", matchesCategory, " matchesProperties: ", matchesProperties)
+    
+        // Combine the filter conditions
+        return matchesCategory && matchesProperties;
+    }); 
 
     function setProductProp(propName, value) {
         setProductProperties((prev) => {
@@ -66,7 +82,6 @@ export default function ProductsPage({
 
     const propertiesToFill = []
     if(categories.length > 0 && category){
-        
         console.log("IN PROPERTIES TO FILL: ", productProperties, " defName: ")
         let catInfo = categories.find(({_id}) =>_id === category)
         propertiesToFill.push(...catInfo.properties)
