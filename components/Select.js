@@ -1,22 +1,24 @@
 import styled from "styled-components"
 
-const StyledInput = styled.input`
+const StyledSelect = styled.select`
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
     border-radius:10px; 
+    border: 2px solid #FFCBCB; ;
     font-size:medium;   
     background-color:#eee;
+    
     font-family:"Permanent Marker";
     box-sizing:border-box;
     outline: none;
     &:focus{
-       
-        outline: 5px dashed white; 
-        transition: outline 0.4s
+        border-color: #eee; 
+        box-shadow: 0 0 5px #eee; 
     }
+ 
 `;
 
-export default function Input(props) {
-    return <StyledInput {...props} />
+export default function Select(props) {
+    return <StyledSelect {...props} />
 }

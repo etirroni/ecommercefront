@@ -13,7 +13,7 @@ const ColumnsWrapper = styled.div`
     grid-template-columns: 1.3fr .7fr;
     gap: 40px;
     margin-top:40px;
-    background: linear-gradient(to bottom , #A3E1DC, #FFF);
+    background: linear-gradient(to bottom , #A3E1DC, #e7e7e7);
     border-radius:10px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3); 
    
@@ -52,6 +52,10 @@ const QuantityLabel = styled.span`
 const CityHolder = styled.div`
     display: flex;
     gap: 5px;
+`;
+const ButtonHolder = styled.div`
+    display:flex;
+    justify-content:center;
 `;
 
 export default function CartPage() {
@@ -210,10 +214,13 @@ export default function CartPage() {
                                 value={streetAddress}
                                 name="streetAddress" 
                                 onChange={ev => setStreetAddress(ev.target.value)}/>
+                            <ButtonHolder>
                             <Button 
                             onClick={goToPayment}>
-                                Shut up and take my money!!
+                                Proceed to pick payment methods
                             </Button>
+                            </ButtonHolder>
+                            
                         
                     </Box>
                     )}

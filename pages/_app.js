@@ -5,15 +5,13 @@ import {CartContextProvider} from "@/components/CartContext"
 const GlobalStyles = createGlobalStyle`
  
   body{
-   /* background: linear-gradient(to bottom left, #A3E1DC, #FFE1E9);*/
-   background-color:#FFCBCB;
+    background-color:#FFCBCB;
     color:white;
     padding:0;
     margin:0;
     font-family: 'Permanent Marker', cursive;
     letter-spacing:1px;
-    font-size:large;
-    
+    font-size:large;    
   }
 `
 

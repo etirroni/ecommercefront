@@ -3,7 +3,7 @@ import styled, {css} from "styled-components"
 
 export const ButtonStyle = css `
 
-
+    
     font-family: 'Permanent Marker', cursive;
     color:white;
     background-color:#FFCBCB;
