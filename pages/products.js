@@ -31,10 +31,18 @@ const Box = styled.div`
 `;
 
 
-export default function ProductsPage({products,categories, category:assignedCategory, properties:assignedProperty}) {
+export default function ProductsPage({
+    products,
+    categories, 
+    category:assignedCategory, 
+    properties:assignedProperty,
+    brand:assignedBrand}) 
+{
     const [category, setCategory] = useState(assignedCategory || "")
     const [productProperties, setProductProperties] = useState(assignedProperty || "")
-    console.log("category : ", category)
+    const [childCategories, setChildCategories] = useState([])
+    const [brand, setBrand] = useState(assignedBrand || "")
+    console.log("brand is : ", brand)
 
     const filteredProducts = category
     ? products.filter(product => product.category === category)
@@ -47,8 +55,15 @@ export default function ProductsPage({products,categories, category:assignedCate
         console.log("New Product Props: ",newProductProps)
           return newProductProps;
         });
-      }
-    
+    }
+
+    function getCategoryAndChild(parent){
+        setCategory(parent)
+        const childCategories=categories.filter(category => category.parent === parent);
+        console.log("here are the childCategories", childCategories)
+        setChildCategories(childCategories)
+    }
+
     const propertiesToFill = []
     if(categories.length > 0 && category){
         
@@ -72,13 +87,26 @@ export default function ProductsPage({products,categories, category:assignedCate
         <Box>
             <Title>Filter search:</Title>
             <p>Select Category: </p>
-            <Select value={category} onChange={ev => setCategory(ev.target.value)}>
+            <Select value={category} onChange={ev => getCategoryAndChild(ev.target.value)}>
                     <option key="default" value="">All</option>
                     {categories.length > 0 && categories.filter(c => !c.parent).map(c =>(
                         <option key={c._id} value={c._id}>{c.name}</option>
                         ))
                     }
             </Select>
+            {childCategories.length > 0 && (
+                <div>
+                    <div>Model</div>
+                    <Select value={brand} onChange={ev => setBrand(ev.target.value)}>
+                        <option key="default" value="">None </option>
+                        {childCategories.map((c) => (
+                            <option key={c._id} value={c._id}>
+                                {c.name}
+                            </option>
+                        ))}
+                    </Select>
+                </div>
+            )}
             {categories.length > 0 && propertiesToFill.map(p =>(
                 <div key={p.name}>
                     <div>{p.name}</div>
@@ -87,8 +115,8 @@ export default function ProductsPage({products,categories, category:assignedCate
                         onChange={ev => setProductProp(p.name, ev.target.value)}
                         key={productProperties[p.name]}
                     >     
-                        <option value="" disabled selected>
-                       Current value: {productProperties[0]?.[p.name] }
+                        <option key="default" value="">
+                       None
                         </option>                     
                         {p.values.map((v) => (
                             <option key={v} value={v}>
